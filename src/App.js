@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import Contact from './Components/Contact'
+import { Footer } from './Components/Footer'
+import { Header } from './Components/Header'
+import { HeroSection } from './Components/HeroSection'
+import { Projects } from './Components/Projects'
+import { BuyerReviews, SellerReviews } from './Components/Reviews'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './index.css'
+import Tab from 'react-bootstrap/Tab'
+import Tabs from 'react-bootstrap/Tabs'
+import { SocialMediaProfiles } from './Components/SocialMediaProfiles'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      <routes>
+        <Header />
+        <HeroSection />
+        <Projects />
+        <Tabs
+          defaultActiveKey='profile'
+          id='uncontrolled-tab-example'
+          className='mb-3'
         >
-          Learn React
-        </a>
-      </header>
+          <Tab eventKey='home' title='Seller Reviews'>
+            <SellerReviews />
+          </Tab>
+          <Tab eventKey='profile' title='Buyer Reviews'>
+            <BuyerReviews />
+          </Tab>
+        </Tabs>
+        <Contact />
+
+        <SocialMediaProfiles />
+        <Footer />
+      </routes>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
